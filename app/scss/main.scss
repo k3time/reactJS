@@ -1,0 +1,40 @@
+.jumbotron {
+    padding: 2rem 4rem;
+}
+.answer {
+    padding: 1rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #c6e0fd;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+
+    &:hover {
+        border-left-color: #75b6ff;
+        background-color: #fff;
+    }
+}
+.author {
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+}
+.footer {
+    height: 50px;
+    line-height: 50px;
+    background-color: #f5f5f5;
+}
+.fail {
+    background-color: #ff0000;
+}
+.pass {
+    background-color: #008000;
+}
+.neutral {
+    background-color: #fff;
+}
+.continue {
+    height: 70px;
+}
