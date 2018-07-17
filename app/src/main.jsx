@@ -134,7 +134,4 @@ Book.propTypes = {
     title: PropTypes.string.isRequired
 };
 
-ReactDOM.render(
-    <Quiz data={data}/>,
-    document.getElementById('app')
-);
+ReactDOM.render(<Quiz data={data}/>, document.getElementById('app'));
