@@ -11,7 +11,7 @@ const data = [
     },
     {
         "name": "Joseph Conrad",
-        "imageURL": "app/dist/images/JJ_Thomson.jpg",
+        "imageURL": "app/dist/images/Joseph_Conrad.jpg",
         "books": ['Heart of Darkness']
     },
     {

@@ -34,7 +34,7 @@ var data = [{
     "books": ['The Adventures of Huckelberry Finn']
 }, {
     "name": "Joseph Conrad",
-    "imageURL": "app/dist/images/JJ_Thomson.jpg",
+    "imageURL": "app/dist/images/Joseph_Conrad.jpg",
     "books": ['Heart of Darkness']
 }, {
     "name": "J. K. Rowling",
