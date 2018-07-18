@@ -19,6 +19,7 @@ var paths = {
     dist: './app/dist/',
     scss: './app/scss/',
     src: './app/src/',
+    vendor: './app/src/vendor/',
     images: './app/images/*',
     css: './app/dist/css/',
     js: './app/dist/js/'
@@ -51,6 +52,12 @@ gulp.task('static:images', function () {
         .pipe(gulp.dest(paths.out.imagesDir));
 });
 
+gulp.task('static:js', function () {
+    return gulp.src(paths.vendor + '*.js')
+        .pipe(debug({ title: 'copy vendor js - files' }))
+        .pipe(gulp.dest(paths.out.jsDir));
+});
+
 gulp.task('browserSync', function () {
     browserSync.init({
         server: {
@@ -78,7 +85,7 @@ gulp.task('transform', function () {
 })
 
 gulp.task('build:js', ['transform'], function () {
-    return browserify(paths.src +'main.js')
+    return browserify(paths.src + 'main.js')
         .bundle()
         .on('error', gutil.log)
         .pipe(source('main.js'))
@@ -92,7 +99,7 @@ gulp.task('js-watch', ['build:js'], function (done) {
     done();
 });
 
-gulp.task('static', ['static:images']);
+gulp.task('static', ['static:images', 'static:js']);
 gulp.task('build', ['build:js', 'build:sass']);
 
 gulp.task('publish', function (callback) {
@@ -103,7 +110,7 @@ gulp.task('publish', function (callback) {
         callback);
 });
 
-gulp.task('watch', ['build:sass', 'build:js', 'static:images', 'browserSync'], function () {
+gulp.task('watch', ['build:sass', 'build:js', 'static:images', 'static:js', 'browserSync'], function () {
     gulp.watch(`${paths.src}*.jsx`, ['js-watch']);
     gulp.watch(`${paths.scss}*.scss`, ['build:sass']);
     gulp.watch(`${paths.base}index.html`).on('change', browserSync.reload);
